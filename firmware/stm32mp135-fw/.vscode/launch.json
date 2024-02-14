@@ -16,34 +16,18 @@
         "searchDir": [
           "${env:OPENOCD_DIR}\\share\\openocd\\scripts"
         ],
-      },      
+      },   
       "configFiles": [
-        "interface/stlink.cfg",
-        "target/stm32g4x.cfg"
+        "tools/stm32mp135-debug.cfg",
       ],
       "searchDir": [],
       "runToEntryPoint": "main",
-      "showDevDebugOutput": "none"
+      "showDevDebugOutput": "vscode",
+      "overrideLaunchCommands": [
+        "monitor reset",
+        "monitor halt",
+        "load"
+      ]  
     },
-    {
-      "cwd": "${workspaceRoot}",
-      "executable": "./build/stm32mp135-fw.elf",
-      "name": "Debug with STLINK",
-      "request": "launch",
-      "type": "cortex-debug",
-      "showDevDebugOutput": "none",      
-      "servertype": "stlink",
-      "osx": {
-        "serverpath": "/opt/ST/STM32CubeCLT/STLink-gdb-server/bin/ST-LINK_gdbserver",
-        "stm32cubeprogrammer": "/opt/ST/STM32CubeCLT/STM32CubeProgrammer/bin",
-        // "svdFile": "/opt/ST/STM32CubeCLT/STMicroelectronics_CMSIS_SVD/STM32WB55_CM4.svd"
-      },  
-      "windows": {
-        "serverpath": "C:/ST/STM32CubeCLT/STLink-gdb-server/bin/ST-LINK_gdbserver.exe",
-        "stm32cubeprogrammer": "C:/ST/STM32CubeCLT/STM32CubeProgrammer/bin",
-        // "svdFile": "C:/ST/STM32CubeCLT/STMicroelectronics_CMSIS_SVD/STM32WB55_CM4.svd"
-      },      
-      "runToEntryPoint": "main",        
-    },    
   ]
 }

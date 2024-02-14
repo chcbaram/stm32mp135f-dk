@@ -23,8 +23,7 @@ file(GLOB SRC_FILES CONFIGURE_DEPENDS
   src/*.c
   src/bsp/*.c
   src/bsp/device/*.c
-  src/bsp/device/startup/*.c
-  
+  src/bsp/startup/*.c
 )
 
 # 하위폴더에 있는 파일까지 포함한다.
@@ -97,10 +96,10 @@ target_compile_options(${EXECUTABLE} PRIVATE
 
   -fdata-sections
   -ffunction-sections
-
+  
   -Wall
   -g3
-  -Og
+  -O0
   )
 
 target_link_options(${EXECUTABLE} PRIVATE
