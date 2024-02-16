@@ -1,0 +1,6 @@
+#Opt	Id	Name	Type	IP	Offset	Binary
+-	0x01	fsbl-boot	Binary	none	0x0	tf-a-stm32mp135f-dk-usb.stm32
+-	0x03	fip-boot	FIP	none	0x0	fip-stm32mp135f-dk-optee.bin
+#-	0x03	fip-boot	FIP	none	0x0	test_header.bin
+P	0x04	fsbl1	Binary	mmc0	0x00010000	test_header.bin
+#P	0x05	fsbl2	Binary	mmc0	0x00050000	test_header.bin

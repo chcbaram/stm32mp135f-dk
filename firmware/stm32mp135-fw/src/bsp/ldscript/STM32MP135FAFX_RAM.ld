@@ -16,15 +16,15 @@
 **                of any kind.
 **
 *****************************************************************************
-** @attention
-**
-  * Copyright (c) 2020-2021 STMicroelectronics.
+  * @attention
+  *
+  * Copyright (c) 2021 STMicroelectronics.
   * All rights reserved.
   *
   * This software is licensed under terms that can be found in the LICENSE file
   * in the root directory of this software component.
   * If no LICENSE file comes with this software, it is provided AS-IS.
-**
+  *
 *****************************************************************************
 */
 
@@ -46,7 +46,8 @@ MEMORY {
       DDR_BASE (rwx)      : ORIGIN = 0xC0000000, LENGTH = 512M
 }
 
-/* Select Memory in which code has to be placed and offset of code from start of this memory */
+/* Select Memory in which code has to be placed and offset of code from start of this memory */ 
+
 REGION_ALIAS("RAM", SYSRAM_BASE);
 START_OFFSET = 0x00;
 
@@ -67,7 +68,6 @@ ABT_STACK = IRQ_STACK - __IRQ_STACK_SIZE;
 SVC_STACK = ABT_STACK - __ABT_STACK_SIZE;
 UND_STACK = SVC_STACK - __SVC_STACK_SIZE;
 SYS_STACK = UND_STACK - __UND_STACK_SIZE;
-_estack = SYS_STACK;
 
 SECTIONS
 {
@@ -77,20 +77,20 @@ SECTIONS
         *(.text.Reset_Handler)
         * (RESET)
         *(.text*)
-
+        
         /* .init is used by libc_nano */
         KEEP (*(.init))
         KEEP (*(.fini))
 
         __TEXT_END_UNALIGNED__ = .;
-
+        
         /*
          * Memory page(s) mapped to this section will be marked as
          * read-only, executable.  No non-executable data from the next section must
          * creep in.  Ensure the rest of the current memory page is unused.
          */
         __TEXT_END__ = .;
-
+        
         . = NEXT(4096);
 
         __RO_START__ = .;
@@ -152,15 +152,10 @@ SECTIONS
     . = ALIGN(4);
     } >RAM
 
-   /* Used by the startup to initialize data */
-    __DATA_ROM = .;
-    _sidata = LOADADDR(.data);
 
     .data . : {
         RW_DATA = .;
-        _sdata = .;
         *(.data*)
-        _edata = .;        /* define a global symbol at data end */
         __DATA_END__ = .;
     } >RAM
 
@@ -169,12 +164,10 @@ SECTIONS
      * Its base address must be 16-byte aligned.
      */
     .bss : ALIGN(32) {
-    	_sbss = .;         /* define a global symbol at bss start */
         ZI_DATA = .;
         *(SORT_BY_ALIGNMENT(.bss*))
         *(COMMON)
         . = ALIGN(32);
-        _ebss = .;         /* define a global symbol at bss end */
         __BSS_END__ = .;
     } >RAM
 

@@ -1990,7 +1990,6 @@ HAL_StatusTypeDef HAL_DDR_Init(DDR_InitTypeDef *iddr)
       break;
   }
 
-
   if ((static_ddr_config.c_reg.MSTR & DDRCTRL_MSTR_DDR3) != 0U)
   {
     iret = HAL_DDR_MspInit(STM32MP_DDR3);

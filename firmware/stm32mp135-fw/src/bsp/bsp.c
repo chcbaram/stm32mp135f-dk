@@ -1,8 +1,14 @@
 #include "bsp.h"
 #include "hw_def.h"
+#include "stm32mp13xx_ll_etzpc.h"
+#include "led.h"
+
+
 
 
 static void SystemClock_Config(void);
+
+static DDR_InitTypeDef hddr;
 
 
 
@@ -12,8 +18,49 @@ bool bspInit(void)
   HAL_Init();
 
 
-
   SystemClock_Config();
+
+  /*##- Enable MCE ####################*/
+  __HAL_RCC_MCE_CLK_ENABLE();
+
+#if (USE_STPMIC1x) && !defined(USE_DDR)
+  /* Configure PMIC */
+  BSP_PMIC_Init();
+  BSP_PMIC_InitRegulators();
+#endif
+
+  /*##- TZC configuration ####################*/
+  __HAL_RCC_TZC_CLK_ENABLE();
+
+  /* Configure TZC to allow  DDR Region0 R/W  non secure for all IDs */
+  TZC->GATE_KEEPER      = 0;
+  TZC->REG_ID_ACCESSO   = 0xFFFFFFFF; // Allow DDR Region0 R/W  non secure for all IDs
+  TZC->REG_ATTRIBUTESO  = DRAM_MEM_BASE + 1;
+  TZC->GATE_KEEPER     |= 1;          // Enable the access in secure Mode  // filter 0 request close
+
+  /* Unsecure SYSRAM so that SDMMC1 (which we configure as non-secure) can access it. */
+  LL_ETZPC_SetSecureSysRamSize(ETZPC, 0);
+
+  /* Unsecure SDMMC1. */
+  LL_ETZPC_Set_SDMMC1_PeriphProtection(ETZPC, LL_ETZPC_PERIPH_PROTECTION_READ_WRITE_NONSECURE);
+
+  /*## No need to Enable ETZPC for security : Cortex A7 is secure master and can access all secure peripherals & memories####################*/
+
+  /*##- Unlock debugger ####################*/
+  BSEC->BSEC_DENABLE = 0x47f;
+
+  /*##- Enable clock debug CK_DBG ####################*/
+  RCC->DBGCFGR |= RCC_DBGCFGR_DBGCKEN ;
+
+  /*##- Init DDR then Check ####################*/
+  hddr.wakeup_from_standby = false;
+  hddr.self_refresh = false;
+  hddr.zdata = 0;
+  hddr.clear_bkp = false;
+  if (HAL_DDR_Init(&hddr) != HAL_OK)
+  {
+    Error_Handler();
+  }
 
 
   return true;

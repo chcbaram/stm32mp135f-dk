@@ -86,6 +86,7 @@ target_compile_definitions(${EXECUTABLE} PRIVATE
   -DNO_CACHE_USE
   -DNO_MMU_USE
   -DGPIO_AF7_LCD=0x07
+  -DDDR_TYPE_DDR3_4Gb
   )
 
 target_compile_options(${EXECUTABLE} PRIVATE
@@ -99,7 +100,7 @@ target_compile_options(${EXECUTABLE} PRIVATE
   
   -Wall
   -g3
-  -O0
+  -Og
   )
 
 target_link_options(${EXECUTABLE} PRIVATE
@@ -110,12 +111,13 @@ target_link_options(${EXECUTABLE} PRIVATE
   -mfpu=vfpv4-d16
   -mfloat-abi=hard
   -specs=nano.specs
+  -specs=nosys.specs
+  -static
   -lc
   -lm
   -lstdc++
   -lsupc++
   # -lnosys
-
   # -u _printf_float
   
   -Wl,-Map=${PRJ_NAME}.map,--cref

@@ -9,8 +9,8 @@ extern "C" {
 
 
 #include "stm32mp13xx_hal.h"
-
-
+#include "stm32mp13xx_disco_conf.h"
+#include "stm32mp13xx_disco_stpmic1.h"
 
 void logPrintf(const char *fmt, ...);
 
