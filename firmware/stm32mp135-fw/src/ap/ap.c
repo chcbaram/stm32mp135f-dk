@@ -17,7 +17,7 @@ void apMain(void)
     if (millis()-pre_time >= 500)
     {
       pre_time = millis();
-      ledToggle(HW_LED_CH_LED);
+      ledToggle(HW_LED_CH_LED_B);
     }
   }
 }

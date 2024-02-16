@@ -13,8 +13,8 @@
 
 #define _USE_HW_LED
 #define      HW_LED_MAX_CH          2
-#define      HW_LED_CH_LED          _DEF_LED1
-#define      HW_LED_CH_LED2         _DEF_LED2
+#define      HW_LED_CH_LED_R        _DEF_LED1
+#define      HW_LED_CH_LED_B        _DEF_LED2
 
 
 
