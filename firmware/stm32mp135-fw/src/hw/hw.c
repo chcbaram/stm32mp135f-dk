@@ -38,8 +38,7 @@ bool hwInit(void)
   logPrintf("\r\n[ Firmware Begin... ]\r\n");
   logPrintf("Name      \t: %s\r\n", _DEF_BOARD_NAME);
   logPrintf("Ver       \t: %s\r\n", _DEF_FIRMWATRE_VERSION);  
-  // logPrintf("CPU1 Clock\t: %d Mhz\r\n", (int)HAL_RCC_GetHCLKFreq()/1000000);
-  // logPrintf("CPU2 Clock\t: %d Mhz\r\n", (int)HAL_RCC_GetHCLK2Freq()/1000000);
+  logPrintf("CPU  Clock\t: %d Mhz\r\n", (int)HAL_RCC_GetMPUSSFreq()/1000000);
   // logPrintf("Firm Size \t: %d KB\r\n", ((int)&_fw_size)/1024);
   // logPrintf("Free Ram  \t: %d KB\r\n", ((int)&_free_ram)/1024);
   logPrintf("\n");
