@@ -2,6 +2,7 @@
 #include "hw_def.h"
 
 
+
 static void SystemClock_Config(void);
 
 
@@ -15,6 +16,11 @@ bool bspInit(void)
 
   SystemClock_Config();
 
+  /* ETZPC clock enable */
+  __HAL_RCC_ETZPC_CLK_ENABLE();
+
+  /* Unsecure SYSRAM */
+  LL_ETZPC_SetSecureSysRamSize(ETZPC, 0);
 
   return true;
 }

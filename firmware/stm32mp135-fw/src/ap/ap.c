@@ -4,7 +4,11 @@
 
 
 void apInit(void)
-{  
+{
+  #ifdef _USE_HW_CLI
+  cliOpen(HW_UART_CH_CLI, 115200);
+  cliLogo();
+  #endif       
 }
 
 void apMain(void)
@@ -19,6 +23,10 @@ void apMain(void)
       pre_time = millis();
       ledToggle(HW_LED_CH_LED_B);
     }
+
+    #ifdef _USE_HW_CLI
+    cliMain();
+    #endif    
   }
 }
 

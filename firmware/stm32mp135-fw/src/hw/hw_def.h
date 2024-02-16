@@ -16,6 +16,19 @@
 #define      HW_LED_CH_LED_R        _DEF_LED1
 #define      HW_LED_CH_LED_B        _DEF_LED2
 
+#define _USE_HW_UART                
+#define      HW_UART_MAX_CH         1
+#define      HW_UART_CH_SWD         _DEF_UART1
+#define      HW_UART_CH_CLI         _DEF_UART1
+
+#define _USE_HW_LOG
+#define      HW_LOG_CH              HW_UART_CH_SWD
+
+#define _USE_HW_CLI
+#define      HW_CLI_CMD_LIST_MAX    32
+#define      HW_CLI_CMD_NAME_MAX    16
+#define      HW_CLI_LINE_HIS_MAX    8
+#define      HW_CLI_LINE_BUF_MAX    64
 
 
 //-- USE CLI

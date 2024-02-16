@@ -8,6 +8,10 @@ extern "C" {
 #include "hw_def.h"
 
 #include "led.h"
+#include "uart.h"
+#include "log.h"
+#include "cli.h"
+#include "cli_gui.h"
 
 
 bool hwInit(void);

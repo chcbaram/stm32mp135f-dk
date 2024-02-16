@@ -9,7 +9,7 @@ extern "C" {
 
 
 #include "stm32mp13xx_hal.h"
-
+#include "stm32mp13xx_ll_etzpc.h"
 
 
 void logPrintf(const char *fmt, ...);

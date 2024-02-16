@@ -28,9 +28,8 @@ static const led_tbl_t led_tbl[LED_MAX_CH] =
 #if CLI_USE(HW_LED)
 static const char *led_name[LED_MAX_CH+1] = 
 {
-  "0_LED ",   
-  "1_LED2",
-  "2_BLE ",
+  "0_LED_B ",   
+  "1_LED_R",
   "Unknown",
 };
 #endif
@@ -123,7 +122,7 @@ void cliLed(cli_args_t *args)
   if (ret == false)
   {
     cliPrintf("led info\n");
-    cliPrintf("led toggle 0~%d ms\n", LED_MAX_CH);
+    cliPrintf("led toggle 0~%d ms\n", LED_MAX_CH-1);
   }
 }
 #endif
