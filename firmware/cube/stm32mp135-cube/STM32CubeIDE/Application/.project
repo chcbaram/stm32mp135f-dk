@@ -74,6 +74,16 @@
 			<locationURI>PARENT-2-PROJECT_LOC/Drivers/STM32MP13xx_HAL_Driver/Src/stm32mp13xx_hal_gpio.c</locationURI>
 		</link>
 		<link>
+			<name>Drivers/STM32MP13xx_HAL_Driver/stm32mp13xx_hal_i2c.c</name>
+			<type>1</type>
+			<locationURI>PARENT-2-PROJECT_LOC/Drivers/STM32MP13xx_HAL_Driver/Src/stm32mp13xx_hal_i2c.c</locationURI>
+		</link>
+		<link>
+			<name>Drivers/STM32MP13xx_HAL_Driver/stm32mp13xx_hal_i2c_ex.c</name>
+			<type>1</type>
+			<locationURI>PARENT-2-PROJECT_LOC/Drivers/STM32MP13xx_HAL_Driver/Src/stm32mp13xx_hal_i2c_ex.c</locationURI>
+		</link>
+		<link>
 			<name>Drivers/STM32MP13xx_HAL_Driver/stm32mp13xx_hal_mdma.c</name>
 			<type>1</type>
 			<locationURI>PARENT-2-PROJECT_LOC/Drivers/STM32MP13xx_HAL_Driver/Src/stm32mp13xx_hal_mdma.c</locationURI>
@@ -97,6 +107,16 @@
 			<name>Drivers/STM32MP13xx_HAL_Driver/stm32mp13xx_hal_rcc_ex.c</name>
 			<type>1</type>
 			<locationURI>PARENT-2-PROJECT_LOC/Drivers/STM32MP13xx_HAL_Driver/Src/stm32mp13xx_hal_rcc_ex.c</locationURI>
+		</link>
+		<link>
+			<name>Drivers/STM32MP13xx_HAL_Driver/stm32mp13xx_hal_smbus.c</name>
+			<type>1</type>
+			<locationURI>PARENT-2-PROJECT_LOC/Drivers/STM32MP13xx_HAL_Driver/Src/stm32mp13xx_hal_smbus.c</locationURI>
+		</link>
+		<link>
+			<name>Drivers/STM32MP13xx_HAL_Driver/stm32mp13xx_hal_smbus_ex.c</name>
+			<type>1</type>
+			<locationURI>PARENT-2-PROJECT_LOC/Drivers/STM32MP13xx_HAL_Driver/Src/stm32mp13xx_hal_smbus_ex.c</locationURI>
 		</link>
 		<link>
 			<name>Drivers/STM32MP13xx_HAL_Driver/stm32mp13xx_hal_tim.c</name>
@@ -127,6 +147,11 @@
 			<name>Application/User/Core/gpio.c</name>
 			<type>1</type>
 			<locationURI>PARENT-2-PROJECT_LOC/Application/Core/Src/gpio.c</locationURI>
+		</link>
+		<link>
+			<name>Application/User/Core/i2c.c</name>
+			<type>1</type>
+			<locationURI>PARENT-2-PROJECT_LOC/Application/Core/Src/i2c.c</locationURI>
 		</link>
 		<link>
 			<name>Application/User/Core/main.c</name>

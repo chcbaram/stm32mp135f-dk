@@ -49,13 +49,13 @@ bool logOpen(uint8_t ch, uint32_t baud)
 
 void logPrintf(const char *fmt, ...)
 {
-#ifdef _USE_HW_RTOS
-  lock();
-#endif
-
   va_list arg;
 
   if (is_init != true) return;
+
+#ifdef _USE_HW_RTOS
+  lock();
+#endif
 
   if (is_open == true && is_enable == true)
   {
