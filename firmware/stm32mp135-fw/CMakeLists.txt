@@ -96,10 +96,11 @@ target_compile_options(${EXECUTABLE} PRIVATE
 
   -fdata-sections
   -ffunction-sections
-  
+  -Wstack-usage=1024
+
   -Wall
   -g3
-  -O0
+  -Og
   )
 
 target_link_options(${EXECUTABLE} PRIVATE
@@ -117,7 +118,7 @@ target_link_options(${EXECUTABLE} PRIVATE
   # -lnosys
 
   # -u _printf_float
-  
+
   -Wl,-Map=${PRJ_NAME}.map,--cref
   -Wl,--gc-sections
   -Xlinker -print-memory-usage -Xlinker
@@ -125,6 +126,13 @@ target_link_options(${EXECUTABLE} PRIVATE
 
 add_custom_command(TARGET ${EXECUTABLE} 
   POST_BUILD
+  COMMAND ${CMAKE_SIZE_UTIL}  ${EXECUTABLE} --format=berkeley 
+  )   
+
+add_custom_command(TARGET ${EXECUTABLE} 
+  POST_BUILD
   COMMAND ${CMAKE_OBJCOPY} ARGS -O binary ${EXECUTABLE} ${PROJECT_NAME}.bin
   COMMENT "Invoking: Make Binary"
   )  
+
+ 
