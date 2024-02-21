@@ -15,6 +15,7 @@ extern "C" {
 #include "i2c.h"
 #include "pmic.h"
 #include "ddr.h"
+#include "clocks.h"
 
 
 bool hwInit(void);

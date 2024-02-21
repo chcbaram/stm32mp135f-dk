@@ -1,5 +1,5 @@
-#ifndef PMIC_H_
-#define PMIC_H_
+#ifndef CLOCKS_H_
+#define CLOCKS_H_
 
 #ifdef __cplusplus
  extern "C" {
@@ -7,12 +7,12 @@
 
 #include "hw_def.h"
 
-#ifdef _USE_HW_PMIC
+#ifdef _USE_HW_CLOCKS
 
 
 
-bool pmicInit(void);
-bool pmicEnableDDR(void);
+bool clocksInit(void);
+
 
 #endif
 

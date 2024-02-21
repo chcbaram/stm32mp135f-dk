@@ -66,6 +66,17 @@ bool pmicInit(void)
   return ret;
 }
 
+bool pmicEnableDDR(void)
+{
+  bool ret = true;
+
+  // VREF_DDR Enable
+  //
+  pmicRegUpdate(STPMIC1_VREF_DDR_CONTROL_REG,  1<<0, 0x01);  
+
+  return ret;
+}
+
 bool pmicInitReg(void)
 {
   bool ret = true;
@@ -77,7 +88,8 @@ bool pmicInitReg(void)
 
   // VDD_CPU
   //
-  pmicRegUpdate(STPMIC1_BUCK1_CONTROL_REG, 26<<2, 0xFC); // 1.25V
+  // pmicRegUpdate(STPMIC1_BUCK1_CONTROL_REG, 26<<2, 0xFC); // 1.25V
+  pmicRegUpdate(STPMIC1_BUCK1_CONTROL_REG, 30<<2, 0xFC); // 1.35V
   pmicRegUpdate(STPMIC1_BUCK1_CONTROL_REG,  1<<0, 0x01);
 
   // VDD_DDR

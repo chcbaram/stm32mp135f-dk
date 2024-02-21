@@ -23,6 +23,8 @@ bool hwInit(void)
 {  
   bspInit();
 
+  clocksInit();
+  
   #ifdef _USE_HW_CLI
   cliInit();
   #endif

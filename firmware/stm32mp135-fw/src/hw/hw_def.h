@@ -10,6 +10,8 @@
 #define _DEF_BOARD_NAME           "STM32MP135-FW"
 
 
+#define _USE_HW_CLOCKS
+
 
 #define _USE_HW_LED
 #define      HW_LED_MAX_CH          2
