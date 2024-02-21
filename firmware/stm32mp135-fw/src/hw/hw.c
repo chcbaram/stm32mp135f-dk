@@ -42,6 +42,7 @@ bool hwInit(void)
   logPrintf("\n");
 
   i2cInit();
+  pmicInit();
   
   return true;
 }

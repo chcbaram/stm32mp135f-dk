@@ -34,11 +34,14 @@
 #define      HW_I2C_MAX_CH          1
 #define      HW_I2C_CH_EEPROM       _DEF_I2C1
 
+#define _USE_HW_PMIC
+#define      HW_PMIC_SETUP          1
+
 
 //-- USE CLI
 //
 #define _USE_CLI_HW_LED             1
 #define _USE_CLI_HW_I2C             1
-
+#define _USE_CLI_HW_PMIC            1
 
 #endif
