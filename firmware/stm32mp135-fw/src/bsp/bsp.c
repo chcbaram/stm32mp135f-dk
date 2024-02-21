@@ -4,7 +4,6 @@
 
 
 static void SystemClock_Config(void);
-static void UpdateMPUSSClock_config_to_900(void);
 
 
 

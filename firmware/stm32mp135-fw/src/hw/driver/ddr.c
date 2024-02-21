@@ -114,7 +114,7 @@ void cliCmd(cli_args_t *args)
       }
       exe_time_write = millis()-pre_time;
 
-      volatile uint32_t read_data;
+      uint32_t read_data;
 
       pre_time = millis();
       for (int i=0; i<length*1024*1024/4; i++)
