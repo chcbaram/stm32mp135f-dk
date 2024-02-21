@@ -144,6 +144,11 @@
 			<locationURI>PARENT-2-PROJECT_LOC/Application/Core/Src/dma.c</locationURI>
 		</link>
 		<link>
+			<name>Application/User/Core/etzpc.c</name>
+			<type>1</type>
+			<locationURI>PARENT-2-PROJECT_LOC/Application/Core/Src/etzpc.c</locationURI>
+		</link>
+		<link>
 			<name>Application/User/Core/gpio.c</name>
 			<type>1</type>
 			<locationURI>PARENT-2-PROJECT_LOC/Application/Core/Src/gpio.c</locationURI>

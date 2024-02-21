@@ -13,14 +13,34 @@ bool bspInit(void)
   HAL_Init();
 
 
-
   SystemClock_Config();
 
-  /* ETZPC clock enable */
-  __HAL_RCC_ETZPC_CLK_ENABLE();
 
-  /* Unsecure SYSRAM */
+  // Enable MCE
+  __HAL_RCC_MCE_CLK_ENABLE();
+
+  // Enable TZC 
+  __HAL_RCC_TZC_CLK_ENABLE();
+
+  // Configure TZC to allow  DDR Region0 R/W  non secure for all IDs 
+  TZC->GATE_KEEPER      = 0;
+  TZC->REG_ID_ACCESSO   = 0xFFFFFFFF; // Allow DDR Region0 R/W  non secure for all IDs
+  TZC->REG_ATTRIBUTESO  = DRAM_MEM_BASE + 1;
+  TZC->GATE_KEEPER     |= 1;          // Enable the access in secure Mode  // filter 0 request close
+
+
+  // ETZPC clock enable
+  __HAL_RCC_ETZPC_CLK_ENABLE();
+  __HAL_RCC_BKPSRAM_CLK_ENABLE();
+
+  // Unsecure SYSRAM
   LL_ETZPC_SetSecureSysRamSize(ETZPC, 0);
+  
+
+  // Unlock debugger 
+  BSEC->BSEC_DENABLE = 0x47f;
+  // Enable clock debug CK_DBG 
+  RCC->DBGCFGR |= RCC_DBGCFGR_DBGCKEN ;
 
   return true;
 }

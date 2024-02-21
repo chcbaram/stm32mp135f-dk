@@ -78,7 +78,7 @@ void SysTick_Handler(void)
 }
 
 /**
-  * @brief This function handles Software Generated Interrupt  0.
+  * @brief This function handles Software Generated Interrupt ?0.
   */
 void SGI0_IRQHandler(void)
 {
@@ -93,7 +93,7 @@ void SGI0_IRQHandler(void)
 }
 
 /**
-  * @brief This function handles Software Generated Interrupt  1.
+  * @brief This function handles Software Generated Interrupt ?1.
   */
 void SGI1_IRQHandler(void)
 {
@@ -108,7 +108,7 @@ void SGI1_IRQHandler(void)
 }
 
 /**
-  * @brief This function handles Software Generated Interrupt  2.
+  * @brief This function handles Software Generated Interrupt ?2.
   */
 void SGI2_IRQHandler(void)
 {
@@ -123,7 +123,7 @@ void SGI2_IRQHandler(void)
 }
 
 /**
-  * @brief This function handles Software Generated Interrupt  3.
+  * @brief This function handles Software Generated Interrupt ?3.
   */
 void SGI3_IRQHandler(void)
 {
@@ -138,7 +138,7 @@ void SGI3_IRQHandler(void)
 }
 
 /**
-  * @brief This function handles Software Generated Interrupt  4.
+  * @brief This function handles Software Generated Interrupt ?4.
   */
 void SGI4_IRQHandler(void)
 {
@@ -153,7 +153,7 @@ void SGI4_IRQHandler(void)
 }
 
 /**
-  * @brief This function handles Software Generated Interrupt  5.
+  * @brief This function handles Software Generated Interrupt ?5.
   */
 void SGI5_IRQHandler(void)
 {
@@ -168,7 +168,7 @@ void SGI5_IRQHandler(void)
 }
 
 /**
-  * @brief This function handles Software Generated Interrupt  6.
+  * @brief This function handles Software Generated Interrupt ?6.
   */
 void SGI6_IRQHandler(void)
 {
@@ -183,7 +183,7 @@ void SGI6_IRQHandler(void)
 }
 
 /**
-  * @brief This function handles Software Generated Interrupt  7.
+  * @brief This function handles Software Generated Interrupt ?7.
   */
 void SGI7_IRQHandler(void)
 {
@@ -198,7 +198,7 @@ void SGI7_IRQHandler(void)
 }
 
 /**
-  * @brief This function handles Software Generated Interrupt  8.
+  * @brief This function handles Software Generated Interrupt ?8.
   */
 void SGI8_IRQHandler(void)
 {
@@ -213,7 +213,7 @@ void SGI8_IRQHandler(void)
 }
 
 /**
-  * @brief This function handles Software Generated Interrupt  9.
+  * @brief This function handles Software Generated Interrupt ?9.
   */
 void SGI9_IRQHandler(void)
 {
@@ -228,7 +228,7 @@ void SGI9_IRQHandler(void)
 }
 
 /**
-  * @brief This function handles Software Generated Interrupt  10.
+  * @brief This function handles Software Generated Interrupt ?10.
   */
 void SGI10_IRQHandler(void)
 {
@@ -243,7 +243,7 @@ void SGI10_IRQHandler(void)
 }
 
 /**
-  * @brief This function handles Software Generated Interrupt  11.
+  * @brief This function handles Software Generated Interrupt ?11.
   */
 void SGI11_IRQHandler(void)
 {
@@ -258,7 +258,7 @@ void SGI11_IRQHandler(void)
 }
 
 /**
-  * @brief This function handles Software Generated Interrupt  12.
+  * @brief This function handles Software Generated Interrupt ?12.
   */
 void SGI12_IRQHandler(void)
 {
@@ -273,7 +273,7 @@ void SGI12_IRQHandler(void)
 }
 
 /**
-  * @brief This function handles Software Generated Interrupt  13.
+  * @brief This function handles Software Generated Interrupt ?13.
   */
 void SGI13_IRQHandler(void)
 {
@@ -288,7 +288,7 @@ void SGI13_IRQHandler(void)
 }
 
 /**
-  * @brief This function handles Software Generated Interrupt  14.
+  * @brief This function handles Software Generated Interrupt ?14.
   */
 void SGI14_IRQHandler(void)
 {
@@ -303,7 +303,7 @@ void SGI14_IRQHandler(void)
 }
 
 /**
-  * @brief This function handles Software Generated Interrupt  15.
+  * @brief This function handles Software Generated Interrupt ?15.
   */
 void SGI15_IRQHandler(void)
 {

@@ -60,7 +60,7 @@ bool pmicInit(void)
 
   is_init = ret;
 
-#if CLI_USE(HW_LED)
+#if CLI_USE(HW_PMIC)
   cliAdd("pmic", cliCmd);
 #endif
   return ret;

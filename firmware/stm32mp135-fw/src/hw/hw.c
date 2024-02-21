@@ -44,11 +44,15 @@ bool hwInit(void)
   logPrintf("PCLK5     \t: %d Mhz\r\n", (int)HAL_RCC_GetPCLK5Freq()/1000000);
   logPrintf("PCLK6     \t: %d Mhz\r\n", (int)HAL_RCC_GetPCLK6Freq()/1000000);
 
+  PLL2_ClocksTypeDef pll2_clocks;
   PLL3_ClocksTypeDef pll3_clocks;
   PLL4_ClocksTypeDef pll4_clocks;
 
+  HAL_RCC_GetPLL2ClockFreq(&pll2_clocks);
   HAL_RCC_GetPLL3ClockFreq(&pll3_clocks);
   HAL_RCC_GetPLL4ClockFreq(&pll4_clocks);
+  logPrintf("PLL2_P    \t: %d Mhz\r\n", (int)pll2_clocks.PLL2_P_Frequency/1000000);
+  logPrintf("PLL2_R(DDR)\t: %d Mhz\r\n", (int)pll2_clocks.PLL2_R_Frequency/1000000);
   logPrintf("PLL3_Q    \t: %d Mhz\r\n", (int)pll3_clocks.PLL3_Q_Frequency/1000000);
   logPrintf("PLL4_Q    \t: %d Mhz\r\n", (int)pll4_clocks.PLL4_Q_Frequency/1000000);
 
@@ -57,6 +61,7 @@ bool hwInit(void)
 
   i2cInit();
   pmicInit();
+  ddrInit();
   
   return true;
 }

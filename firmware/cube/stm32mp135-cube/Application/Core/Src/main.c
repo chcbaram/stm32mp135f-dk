@@ -19,6 +19,7 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "dma.h"
+#include "etzpc.h"
 #include "i2c.h"
 #include "usart.h"
 #include "gpio.h"
@@ -137,7 +138,7 @@ void SystemClock_Config(void)
   RCC_OscInitStruct.PLL2.PLLN = 66;
   RCC_OscInitStruct.PLL2.PLLP = 2;
   RCC_OscInitStruct.PLL2.PLLQ = 2;
-  RCC_OscInitStruct.PLL2.PLLR = 2;
+  RCC_OscInitStruct.PLL2.PLLR = 1;
   RCC_OscInitStruct.PLL2.PLLFRACV = 0;
   RCC_OscInitStruct.PLL2.PLLMODE = RCC_PLL_INTEGER;
   RCC_OscInitStruct.PLL3.PLLState = RCC_PLL_ON;
