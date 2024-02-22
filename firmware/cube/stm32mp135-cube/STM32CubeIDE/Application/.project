@@ -109,6 +109,16 @@
 			<locationURI>PARENT-2-PROJECT_LOC/Drivers/STM32MP13xx_HAL_Driver/Src/stm32mp13xx_hal_rcc_ex.c</locationURI>
 		</link>
 		<link>
+			<name>Drivers/STM32MP13xx_HAL_Driver/stm32mp13xx_hal_sd.c</name>
+			<type>1</type>
+			<locationURI>PARENT-2-PROJECT_LOC/Drivers/STM32MP13xx_HAL_Driver/Src/stm32mp13xx_hal_sd.c</locationURI>
+		</link>
+		<link>
+			<name>Drivers/STM32MP13xx_HAL_Driver/stm32mp13xx_hal_sd_ex.c</name>
+			<type>1</type>
+			<locationURI>PARENT-2-PROJECT_LOC/Drivers/STM32MP13xx_HAL_Driver/Src/stm32mp13xx_hal_sd_ex.c</locationURI>
+		</link>
+		<link>
 			<name>Drivers/STM32MP13xx_HAL_Driver/stm32mp13xx_hal_smbus.c</name>
 			<type>1</type>
 			<locationURI>PARENT-2-PROJECT_LOC/Drivers/STM32MP13xx_HAL_Driver/Src/stm32mp13xx_hal_smbus.c</locationURI>
@@ -139,6 +149,16 @@
 			<locationURI>PARENT-2-PROJECT_LOC/Drivers/STM32MP13xx_HAL_Driver/Src/stm32mp13xx_hal_uart_ex.c</locationURI>
 		</link>
 		<link>
+			<name>Drivers/STM32MP13xx_HAL_Driver/stm32mp13xx_ll_delayblock.c</name>
+			<type>1</type>
+			<locationURI>PARENT-2-PROJECT_LOC/Drivers/STM32MP13xx_HAL_Driver/Src/stm32mp13xx_ll_delayblock.c</locationURI>
+		</link>
+		<link>
+			<name>Drivers/STM32MP13xx_HAL_Driver/stm32mp13xx_ll_sdmmc.c</name>
+			<type>1</type>
+			<locationURI>PARENT-2-PROJECT_LOC/Drivers/STM32MP13xx_HAL_Driver/Src/stm32mp13xx_ll_sdmmc.c</locationURI>
+		</link>
+		<link>
 			<name>Application/User/Core/dma.c</name>
 			<type>1</type>
 			<locationURI>PARENT-2-PROJECT_LOC/Application/Core/Src/dma.c</locationURI>
@@ -162,6 +182,11 @@
 			<name>Application/User/Core/main.c</name>
 			<type>1</type>
 			<locationURI>PARENT-2-PROJECT_LOC/Application/Core/Src/main.c</locationURI>
+		</link>
+		<link>
+			<name>Application/User/Core/sdmmc.c</name>
+			<type>1</type>
+			<locationURI>PARENT-2-PROJECT_LOC/Application/Core/Src/sdmmc.c</locationURI>
 		</link>
 		<link>
 			<name>Application/User/Core/stm32mp13xx_hal_msp.c</name>

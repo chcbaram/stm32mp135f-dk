@@ -21,6 +21,7 @@
 #include "dma.h"
 #include "etzpc.h"
 #include "i2c.h"
+#include "sdmmc.h"
 #include "usart.h"
 #include "gpio.h"
 
@@ -92,6 +93,7 @@ int main(void)
   MX_DMA_Init();
   MX_UART4_Init();
   MX_I2C4_Init();
+  MX_SDMMC1_SD_Init();
   /* USER CODE BEGIN 2 */
 
   /* USER CODE END 2 */
@@ -125,13 +127,13 @@ void SystemClock_Config(void)
   RCC_OscInitStruct.HSIDivValue = RCC_HSI_DIV1;
   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
   RCC_OscInitStruct.PLL.PLLSource = RCC_PLL12SOURCE_HSE;
-  RCC_OscInitStruct.PLL.PLLM = 3;
-  RCC_OscInitStruct.PLL.PLLN = 81;
+  RCC_OscInitStruct.PLL.PLLM = 2;
+  RCC_OscInitStruct.PLL.PLLN = 75;
   RCC_OscInitStruct.PLL.PLLP = 1;
   RCC_OscInitStruct.PLL.PLLQ = 2;
   RCC_OscInitStruct.PLL.PLLR = 2;
-  RCC_OscInitStruct.PLL.PLLFRACV = 2048;
-  RCC_OscInitStruct.PLL.PLLMODE = RCC_PLL_FRACTIONAL;
+  RCC_OscInitStruct.PLL.PLLFRACV = 0;
+  RCC_OscInitStruct.PLL.PLLMODE = RCC_PLL_INTEGER;
   RCC_OscInitStruct.PLL2.PLLState = RCC_PLL_ON;
   RCC_OscInitStruct.PLL2.PLLSource = RCC_PLL12SOURCE_HSE;
   RCC_OscInitStruct.PLL2.PLLM = 3;
@@ -151,7 +153,16 @@ void SystemClock_Config(void)
   RCC_OscInitStruct.PLL3.PLLRGE = RCC_PLL3IFRANGE_1;
   RCC_OscInitStruct.PLL3.PLLFRACV = 6660;
   RCC_OscInitStruct.PLL3.PLLMODE = RCC_PLL_FRACTIONAL;
-  RCC_OscInitStruct.PLL4.PLLState = RCC_PLL_NONE;
+  RCC_OscInitStruct.PLL4.PLLState = RCC_PLL_ON;
+  RCC_OscInitStruct.PLL4.PLLSource = RCC_PLL4SOURCE_HSE;
+  RCC_OscInitStruct.PLL4.PLLM = 2;
+  RCC_OscInitStruct.PLL4.PLLN = 50;
+  RCC_OscInitStruct.PLL4.PLLP = 12;
+  RCC_OscInitStruct.PLL4.PLLQ = 60;
+  RCC_OscInitStruct.PLL4.PLLR = 6;
+  RCC_OscInitStruct.PLL4.PLLRGE = RCC_PLL4IFRANGE_1;
+  RCC_OscInitStruct.PLL4.PLLFRACV = 0;
+  RCC_OscInitStruct.PLL4.PLLMODE = RCC_PLL_INTEGER;
   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
   {
     Error_Handler();
