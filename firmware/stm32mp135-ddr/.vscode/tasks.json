@@ -1,0 +1,53 @@
+{
+	"version": "2.0.0",
+  "tasks": [
+    {
+      "label": "configure",
+      "type": "shell",
+      "command": "cmake -S . -B build",
+      "problemMatcher": []
+    },  
+    {
+      "label": "configure for win",
+      "type": "shell",
+      "command": "cmake -S . -B build -G 'MinGW Makefiles'",
+      "problemMatcher": []
+    },       
+    {
+      "label": "build",
+      "type": "shell",
+      "command": "cmake --build build -j20",
+      "problemMatcher": [],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "clean",
+      "type": "shell",
+      "command": "cmake --build build --target clean",
+      "problemMatcher": [],
+    },  
+    {
+      "label": "image-fsbl",
+      "type": "shell",
+      "windows":{"command": "python tools/image-header/Stm32ImageAddHeader.py build/stm32mp135-fw.bin build/fsbl-fw.stm32 -bt 10",},
+      "osx":{"command": "python3 tools/image-header/Stm32ImageAddHeader.py build/stm32mp135-fw.bin build/fsbl-fw.stm32 -bt 10",},      
+      "problemMatcher": [],
+    },
+    {
+      "label": "flash-fsbl",
+      "type": "shell",
+      "windows":
+      {
+        "command": "stm32_programmer_cli -c port=com3 -w tools/flash-sd/flash-fsbl.tsv",
+      },
+      "osx":
+      {
+        "command": "stm32_programmer_cli -c port=/dev/cu.usbmodem124102 -w tools/flash-sd/flash-fsbl.tsv",
+      },
+      "problemMatcher": [],
+    }        
+  ]
+}
