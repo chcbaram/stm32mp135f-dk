@@ -37,10 +37,10 @@
 #define      HW_I2C_CH_EEPROM       _DEF_I2C1
 
 #define _USE_HW_PMIC
-#define      HW_PMIC_SETUP          1
+#define      HW_PMIC_SETUP          0
 
 #define _USE_HW_DDR
-#define      HW_DDR_SETUP           1
+#define      HW_DDR_SETUP           0
 #define      HW_DDR_ADDR            0xC0000000
 #define      HW_DDR_SIZE            (512*1024*1024)
 

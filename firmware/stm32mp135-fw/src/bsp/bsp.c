@@ -69,7 +69,7 @@ void Error_Handler(void)
 
 void SystemClock_Config(void)
 {
-#if !defined(USE_DDR)
+#if !defined(USE_DDR) && HW_DDR_SETUP == 1
   HAL_RCC_DeInit();
   RCC_ClkInitTypeDef RCC_ClkInitStructure;
   RCC_OscInitTypeDef RCC_OscInitStructure;
