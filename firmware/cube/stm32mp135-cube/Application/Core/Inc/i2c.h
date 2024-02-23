@@ -34,11 +34,14 @@ extern "C" {
 
 extern I2C_HandleTypeDef hi2c4;
 
+extern I2C_HandleTypeDef hi2c5;
+
 /* USER CODE BEGIN Private defines */
 
 /* USER CODE END Private defines */
 
 void MX_I2C4_Init(void);
+void MX_I2C5_Init(void);
 
 /* USER CODE BEGIN Prototypes */
 

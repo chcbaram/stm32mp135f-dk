@@ -94,6 +94,7 @@ int main(void)
   MX_UART4_Init();
   MX_I2C4_Init();
   MX_SDMMC1_SD_Init();
+  MX_I2C5_Init();
   /* USER CODE BEGIN 2 */
 
   /* USER CODE END 2 */

@@ -34,7 +34,7 @@ static SemaphoreHandle_t mutex_lock;
 #endif
 
 I2C_HandleTypeDef hi2c4;
-
+I2C_HandleTypeDef hi2c5;
 
 typedef struct
 {
@@ -51,6 +51,7 @@ typedef struct
 static i2c_tbl_t i2c_tbl[I2C_MAX_CH] =
 {
   {I2C4, &hi2c4, GPIOE, GPIO_PIN_15, GPIOB, GPIO_PIN_9},
+  {I2C5, &hi2c5, GPIOD, GPIO_PIN_1 , GPIOH, GPIO_PIN_6},
 };
 
 
@@ -477,6 +478,41 @@ void HAL_I2C_MspInit(I2C_HandleTypeDef* i2cHandle)
     /* I2C4 clock enable */
     __HAL_RCC_I2C4_CLK_ENABLE();
   }
+
+  if (i2cHandle->Instance == I2C5)
+  {
+    /** Initializes the peripherals clock
+     */
+    PeriphClkInit.PeriphClockSelection = RCC_PERIPHCLK_I2C5;
+    PeriphClkInit.I2c5ClockSelection = RCC_I2C5CLKSOURCE_PCLK6;
+    if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInit) != HAL_OK)
+    {
+      Error_Handler();
+    }
+
+    __HAL_RCC_GPIOD_CLK_ENABLE();
+    __HAL_RCC_GPIOH_CLK_ENABLE();
+    /**I2C5 GPIO Configuration
+    PD1     ------> I2C5_SCL
+    PH6     ------> I2C5_SDA
+    */
+    GPIO_InitStruct.Pin = GPIO_PIN_1;
+    GPIO_InitStruct.Mode = GPIO_MODE_AF_OD;
+    GPIO_InitStruct.Pull = GPIO_NOPULL;
+    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+    GPIO_InitStruct.Alternate = GPIO_AF4_I2C5;
+    HAL_GPIO_Init(GPIOD, &GPIO_InitStruct);
+
+    GPIO_InitStruct.Pin = GPIO_PIN_6;
+    GPIO_InitStruct.Mode = GPIO_MODE_AF_OD;
+    GPIO_InitStruct.Pull = GPIO_NOPULL;
+    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+    GPIO_InitStruct.Alternate = GPIO_AF4_I2C5;
+    HAL_GPIO_Init(GPIOH, &GPIO_InitStruct);
+
+    /* I2C5 clock enable */
+    __HAL_RCC_I2C5_CLK_ENABLE();
+  }
 }
 
 void HAL_I2C_MspDeInit(I2C_HandleTypeDef* i2cHandle)
@@ -494,6 +530,20 @@ void HAL_I2C_MspDeInit(I2C_HandleTypeDef* i2cHandle)
 
     HAL_GPIO_DeInit(GPIOB, GPIO_PIN_9);
 
+  }
+
+  if (i2cHandle->Instance == I2C5)
+  {
+    /* Peripheral clock disable */
+    __HAL_RCC_I2C5_CLK_DISABLE();
+
+    /**I2C5 GPIO Configuration
+    PD1     ------> I2C5_SCL
+    PH6     ------> I2C5_SDA
+    */
+    HAL_GPIO_DeInit(GPIOD, GPIO_PIN_1);
+
+    HAL_GPIO_DeInit(GPIOH, GPIO_PIN_6);
   }
 }
 

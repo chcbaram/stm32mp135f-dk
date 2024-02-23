@@ -18,6 +18,7 @@ extern "C" {
 #include "clocks.h"
 #include "gpio.h"
 #include "sd.h"
+#include "touch.h"
 
 
 bool hwInit(void);

@@ -13,6 +13,8 @@
 #define _USE_HW_CLOCKS
 #define _USE_HW_GPIO
 #define _USE_HW_SD
+#define _USE_HW_GT911
+
 
 #define _USE_HW_LED
 #define      HW_LED_MAX_CH          2
@@ -33,9 +35,14 @@
 #define      HW_CLI_LINE_HIS_MAX    8
 #define      HW_CLI_LINE_BUF_MAX    64
 
+#define _USE_HW_CLI_GUI
+#define      HW_CLI_GUI_WIDTH       80
+#define      HW_CLI_GUI_HEIGHT      24
+
 #define _USE_HW_I2C
-#define      HW_I2C_MAX_CH          1
+#define      HW_I2C_MAX_CH          2
 #define      HW_I2C_CH_EEPROM       _DEF_I2C1
+#define      HW_I2C_CH_TOUCH        _DEF_I2C2
 
 #define _USE_HW_PMIC
 #define      HW_PMIC_SETUP          1
@@ -45,7 +52,10 @@
 #define      HW_DDR_ADDR            0xC0000000
 #define      HW_DDR_SIZE            (512*1024*1024)
 
-
+#define _USE_HW_TOUCH
+#define      HW_TOUCH_MAX_CH        5
+#define      HW_TOUCH_WIDTH         480
+#define      HW_TOUCH_HEIGHT        272
 
 
 //-- USE CLI
@@ -56,11 +66,15 @@
 #define _USE_CLI_HW_DDR             1
 #define _USE_CLI_HW_GPIO            1
 #define _USE_CLI_HW_SD              1
+#define _USE_CLI_HW_GT911           1
+#define _USE_CLI_HW_TOUCH           1
 
 
 typedef enum
 {
   SD_DETECT,
+  LCD_RST,
+  LCD_INT,
 
   GPIO_PIN_MAX,  
 } GpioPinName_t;

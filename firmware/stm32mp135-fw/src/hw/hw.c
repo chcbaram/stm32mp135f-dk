@@ -2,7 +2,6 @@
 
 
 
-
 extern uint32_t _fw_flash_begin;
 extern uint32_t _fw_size;
 extern uint32_t _free_ram;
@@ -67,6 +66,7 @@ bool hwInit(void)
   ddrInit();
   gpioInit();
   sdInit();
-  
+  touchInit();
+
   return true;
 }
