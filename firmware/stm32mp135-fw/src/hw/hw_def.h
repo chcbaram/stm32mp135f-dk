@@ -75,7 +75,8 @@ typedef enum
   SD_DETECT,
   LCD_RST,
   LCD_INT,
-
+  LCD_BL,
+  
   GPIO_PIN_MAX,  
 } GpioPinName_t;
 
