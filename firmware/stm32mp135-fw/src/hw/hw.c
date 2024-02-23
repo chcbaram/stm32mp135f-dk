@@ -67,6 +67,7 @@ bool hwInit(void)
   gpioInit();
   sdInit();
   touchInit();
-
+  ltdcInit();
+  
   return true;
 }

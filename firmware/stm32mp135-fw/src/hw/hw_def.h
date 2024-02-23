@@ -57,6 +57,15 @@
 #define      HW_TOUCH_WIDTH         480
 #define      HW_TOUCH_HEIGHT        272
 
+#define _USE_HW_LTDC
+#define      HW_LTDC_BUF_ADDR      HW_DDR_ADDR
+
+#define _USE_HW_LCD
+#define      HW_LCD_LOGO            1
+#define      HW_LCD_LVGL            1
+#define      HW_LCD_WIDTH           HW_TOUCH_WIDTH
+#define      HW_LCD_HEIGHT          HW_TOUCH_HEIGHT
+
 
 //-- USE CLI
 //
@@ -76,6 +85,7 @@ typedef enum
   LCD_RST,
   LCD_INT,
   LCD_BL,
+  LCD_DISP,
   
   GPIO_PIN_MAX,  
 } GpioPinName_t;

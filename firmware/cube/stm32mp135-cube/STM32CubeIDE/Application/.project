@@ -84,6 +84,11 @@
 			<locationURI>PARENT-2-PROJECT_LOC/Drivers/STM32MP13xx_HAL_Driver/Src/stm32mp13xx_hal_i2c_ex.c</locationURI>
 		</link>
 		<link>
+			<name>Drivers/STM32MP13xx_HAL_Driver/stm32mp13xx_hal_ltdc.c</name>
+			<type>1</type>
+			<locationURI>PARENT-2-PROJECT_LOC/Drivers/STM32MP13xx_HAL_Driver/Src/stm32mp13xx_hal_ltdc.c</locationURI>
+		</link>
+		<link>
 			<name>Drivers/STM32MP13xx_HAL_Driver/stm32mp13xx_hal_mdma.c</name>
 			<type>1</type>
 			<locationURI>PARENT-2-PROJECT_LOC/Drivers/STM32MP13xx_HAL_Driver/Src/stm32mp13xx_hal_mdma.c</locationURI>
@@ -177,6 +182,11 @@
 			<name>Application/User/Core/i2c.c</name>
 			<type>1</type>
 			<locationURI>PARENT-2-PROJECT_LOC/Application/Core/Src/i2c.c</locationURI>
+		</link>
+		<link>
+			<name>Application/User/Core/ltdc.c</name>
+			<type>1</type>
+			<locationURI>PARENT-2-PROJECT_LOC/Application/Core/Src/ltdc.c</locationURI>
 		</link>
 		<link>
 			<name>Application/User/Core/main.c</name>

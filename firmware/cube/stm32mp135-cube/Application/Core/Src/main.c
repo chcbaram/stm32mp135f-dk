@@ -21,6 +21,7 @@
 #include "dma.h"
 #include "etzpc.h"
 #include "i2c.h"
+#include "ltdc.h"
 #include "sdmmc.h"
 #include "usart.h"
 #include "gpio.h"
@@ -95,6 +96,7 @@ int main(void)
   MX_I2C4_Init();
   MX_SDMMC1_SD_Init();
   MX_I2C5_Init();
+  MX_LTDC_Init();
   /* USER CODE BEGIN 2 */
 
   /* USER CODE END 2 */

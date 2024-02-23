@@ -19,6 +19,8 @@ extern "C" {
 #include "gpio.h"
 #include "sd.h"
 #include "touch.h"
+#include "ltdc.h"
+#include "lcd.h"
 
 
 bool hwInit(void);
