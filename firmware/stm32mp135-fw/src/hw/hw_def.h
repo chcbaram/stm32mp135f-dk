@@ -14,6 +14,7 @@
 #define _USE_HW_GPIO
 #define _USE_HW_SD
 #define _USE_HW_GT911
+#define _USE_HW_CACHE
 
 
 #define _USE_HW_LED

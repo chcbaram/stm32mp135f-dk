@@ -301,7 +301,7 @@ bool sdReadBlocks(uint32_t block_addr, uint8_t *p_data, uint32_t num_of_blocks, 
   if (ret == true)
   {
     #ifdef _USE_HW_CACHE
-    SCB_InvalidateDCache_by_Addr((uint32_t*)p_data, BLOCKSIZE * num_of_blocks);
+    invalidate_cache_by_addr((uint32_t*)p_data, BLOCKSIZE * num_of_blocks);
     #endif
   }
   return ret;
@@ -316,7 +316,7 @@ bool sdWriteBlocks(uint32_t block_addr, uint8_t *p_data, uint32_t num_of_blocks,
 
 
   #ifdef _USE_HW_CACHE
-  SCB_InvalidateDCache_by_Addr((uint32_t *)p_data, num_of_blocks * BLOCKSIZE);  
+  invalidate_cache_by_addr((uint32_t *)p_data, num_of_blocks * BLOCKSIZE);  
   #endif
 
   is_tx_done = false;

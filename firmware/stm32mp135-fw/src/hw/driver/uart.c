@@ -48,6 +48,7 @@ static void cliUart(cli_args_t *args);
 
 static bool is_init = false;
 
+__attribute__((section(".non_cache")))
 static uart_tbl_t uart_tbl[UART_MAX_CH];
 
 static UART_HandleTypeDef huart4;

@@ -212,6 +212,14 @@ SECTIONS
       . = ALIGN(4);       
     } >DDR_BUF
 
+  .non_cache :
+  {
+    . = ALIGN(4);      
+    *(.non_cache)
+    *(.non_cache*)   
+    . = ALIGN(4);       
+  } >SRAM3_BASE 
+  
   /* Remove information from the compiler libraries */
   /DISCARD/ :
   {
