@@ -93,7 +93,8 @@ target_compile_definitions(${EXECUTABLE} PRIVATE
 target_compile_options(${EXECUTABLE} PRIVATE
   -mcpu=cortex-a7
   -mthumb
-  -mfpu=vfpv4-d16
+  # -mfpu=vfpv4-d16
+  -mfpu=neon-vfpv4  
   -mfloat-abi=hard
 
   -fdata-sections
@@ -110,7 +111,8 @@ target_link_options(${EXECUTABLE} PRIVATE
   -T../src/bsp/ldscript/STM32MP135FAFX_DDR.ld
   -mcpu=cortex-a7
   -mthumb
-  -mfpu=vfpv4-d16
+  # -mfpu=vfpv4-d16
+  -mfpu=neon-vfpv4
   -mfloat-abi=hard
   -specs=nano.specs
   -lc

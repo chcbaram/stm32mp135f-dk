@@ -259,10 +259,10 @@ bool gt911GetInfo(gt911_info_t *p_info)
   }
 
 
-  if (gpioPinRead(LCD_INT) == _DEF_HIGH)
-  {
-    return true;
-  }
+  // if (gpioPinRead(LCD_INT) == _DEF_HIGH)
+  // {
+  //   return true;
+  // }
 
   ret = readRegs(GT911_POINT_INFO, buf, 1);
   if (ret == true && buf[0] & (1<<7))

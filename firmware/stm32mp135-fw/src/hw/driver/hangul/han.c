@@ -242,8 +242,8 @@ void hanUniFontLoadUTF16(uint32_t utf16_code, han_font_t *FontPtr)
 
 void hanEngFontLoad(char *HanCode, han_font_t *FontPtr)
 {
-  uint16_t i;
-  char EngCode;
+  volatile uint16_t i;
+  volatile char EngCode;
 
   EngCode = *HanCode;
 

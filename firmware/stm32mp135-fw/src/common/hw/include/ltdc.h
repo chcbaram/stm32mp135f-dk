@@ -22,6 +22,8 @@ uint16_t *ltdcGetCurrentFrameBuffer(void);
 int32_t  ltdcWidth(void);
 int32_t  ltdcHeight(void);
 uint32_t ltdcGetBufferAddr(uint8_t index);
+uint32_t ltdcGetFrameRate(void);
+uint32_t ltdcGetDrawRate(void);
 bool ltdcLayerInit(uint16_t LayerIndex, uint32_t Address);
 void ltdcSetDoubleBuffer(bool enable);
 bool ltdcGetDoubleBuffer(void);

@@ -185,6 +185,8 @@ void SystemClock_Config(void)
 
   HAL_EnableCompensationCell();
 */
+#else
+
 #endif
 
 }

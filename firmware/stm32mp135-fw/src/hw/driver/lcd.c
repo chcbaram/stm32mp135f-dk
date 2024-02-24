@@ -453,7 +453,8 @@ void lcdSetFps(int32_t fps)
 
 uint32_t lcdGetFps(void)
 {
-  return fps_count;
+  // return fps_count;
+  return ltdcGetDrawRate();
 }
 
 uint32_t lcdGetFpsTime(void)
@@ -549,7 +550,7 @@ void lcdSetRotation(uint8_t mode)
   // lcdSaveCfg();
 }
 
-void lcdDrawLine(int16_t x0, int16_t y0, int16_t x1, int16_t y1, uint16_t color)
+LCD_OPT_DEF void lcdDrawLine(int16_t x0, int16_t y0, int16_t x1, int16_t y1, uint16_t color)
 {
   int16_t steep = abs(y1 - y0) > abs(x1 - x0);
 
@@ -603,7 +604,7 @@ void lcdDrawLine(int16_t x0, int16_t y0, int16_t x1, int16_t y1, uint16_t color)
   }
 }
 
-void lcdDrawLineBuffer(int16_t x0, int16_t y0, int16_t x1, int16_t y1, uint16_t color, lcd_pixel_t *line)
+LCD_OPT_DEF void lcdDrawLineBuffer(int16_t x0, int16_t y0, int16_t x1, int16_t y1, uint16_t color, lcd_pixel_t *line)
 {
   int16_t steep = abs(y1 - y0) > abs(x1 - x0);
 
@@ -730,7 +731,7 @@ void lcdFillBuffer(void * pDst, uint32_t xSize, uint32_t ySize, uint32_t OffLine
 }
 #endif
 
-void lcdPrintf(int x, int y, uint16_t color,  const char *fmt, ...)
+LCD_OPT_DEF void lcdPrintf(int x, int y, uint16_t color,  const char *fmt, ...)
 {
   va_list arg;
   va_start (arg, fmt);
@@ -796,7 +797,7 @@ void lcdPrintf(int x, int y, uint16_t color,  const char *fmt, ...)
 }
 
 
-uint32_t lcdGetStrWidth(const char *fmt, ...)
+LCD_OPT_DEF uint32_t lcdGetStrWidth(const char *fmt, ...)
 {
   va_list arg;
   va_start (arg, fmt);
@@ -834,7 +835,7 @@ uint32_t lcdGetStrWidth(const char *fmt, ...)
   return str_len;
 }
 
-void disHanFont(int x, int y, han_font_t *FontPtr, uint16_t textcolor)
+LCD_OPT_DEF void disHanFont(int x, int y, han_font_t *FontPtr, uint16_t textcolor)
 {
   uint16_t    i, j, Loop;
   uint16_t  FontSize = FontPtr->Size_Char;
@@ -866,7 +867,7 @@ void disHanFont(int x, int y, han_font_t *FontPtr, uint16_t textcolor)
   }
 }
 
-void disEngFont(int x, int y, char ch, lcd_font_t *font, uint16_t textcolor)
+LCD_OPT_DEF void disEngFont(int x, int y, char ch, lcd_font_t *font, uint16_t textcolor)
 {
   uint32_t i, b, j;
 
@@ -900,7 +901,7 @@ LCD_OPT_DEF void lcdDrawPixelBuffer(int16_t x_pos, int16_t y_pos, uint32_t rgb_c
   font_src_buffer[y_pos * 16 + x_pos] = rgb_code;
 }
 
-void disHanFontBuffer(int x, int y, han_font_t *FontPtr, uint16_t textcolor)
+LCD_OPT_DEF void disHanFontBuffer(int x, int y, han_font_t *FontPtr, uint16_t textcolor)
 {
   uint16_t    i, j, Loop;
   uint16_t  FontSize = FontPtr->Size_Char;
@@ -969,7 +970,7 @@ LCD_OPT_DEF void lcdDrawPixelMix(int16_t x_pos, int16_t y_pos, uint32_t rgb_code
   p_draw_frame_buf[y_pos * LCD_WIDTH + x_pos] = lcdGetColorMix(color1, color2, 255-mix);
 }
 
-void lcdPrintfResize(int x, int y, uint16_t color,  float ratio_h, const char *fmt, ...)
+LCD_OPT_DEF void lcdPrintfResize(int x, int y, uint16_t color,  float ratio_h, const char *fmt, ...)
 {
   va_list arg;
   va_start (arg, fmt);
@@ -1077,7 +1078,7 @@ void lcdPrintfResize(int x, int y, uint16_t color,  float ratio_h, const char *f
   }
 }
 
-void lcdPrintfRect(int x, int y, int w, int h, uint16_t color, float ratio_h, uint16_t align, const char *fmt, ...)
+LCD_OPT_DEF void lcdPrintfRect(int x, int y, int w, int h, uint16_t color, float ratio_h, uint16_t align, const char *fmt, ...)
 {
   va_list arg;
   int32_t len;
@@ -1616,7 +1617,6 @@ void cliLcd(cli_args_t *args)
     cliPrintf("lcd logo\n");
     cliPrintf("lcd test\n");
     cliPrintf("lcd touch\n");
-    cliPrintf("lcd pdm\n");
     cliPrintf("lcd rgb\n");
     cliPrintf("lcd gray\n");
     cliPrintf("lcd bl 0~100\n");

@@ -47,6 +47,9 @@ static uint32_t frame_rate = 0;
 static uint32_t frame_cnt = 0;
 static uint32_t frame_time = 0;
 
+static uint32_t draw_rate = 0;
+static uint32_t draw_cnt = 0;
+
 static uint32_t  frame_index = 0;
 __attribute__((section(".sdram_buf"))) __attribute__((aligned(64)))
 static uint16_t frame_mem[LCD_WIDTH*LCD_HEIGHT*2*2];
@@ -134,6 +137,12 @@ bool ltdcInit(void)
 
   is_init = ret;
   logPrintf("[%s] ltdcInit()\n", is_init ? "OK":"NG");
+  PLL4_ClocksTypeDef pll4_clock;
+  HAL_RCC_GetPLL4ClockFreq(&pll4_clock);
+  logPrintf("     freq : %d.%03d Mhz\n", 
+    pll4_clock.PLL4_Q_Frequency/1000000,
+    (pll4_clock.PLL4_Q_Frequency%1000000)/1000
+    );
 
 #ifdef _USE_HW_CLI
   cliAdd("ltdc", cliCmd);
@@ -206,8 +215,8 @@ bool ltdcLayerInit(uint16_t LayerIndex, uint32_t Address)
   pLayerCfg.ImageWidth  = LCD_WIDTH;
   pLayerCfg.ImageHeight = LCD_HEIGHT;
 
-  pLayerCfg.HorMirrorEn = true;
-  pLayerCfg.VertMirrorEn = true;
+  pLayerCfg.HorMirrorEn = false;
+  pLayerCfg.VertMirrorEn = false;
 
   /* Configure the Layer*/
   if(HAL_LTDC_ConfigLayer(&hltdc, &pLayerCfg, LayerIndex) != HAL_OK)
@@ -291,6 +300,8 @@ void ltdcSwapFrameBuffer(void)
   if (ltdc_request_draw == true)
   {
     frame_index ^= 1;
+    draw_cnt++;
+
     ltdcSetFrameBuffer(frame_buffer[frame_index]);
 
     if (is_double_buffer == true)
@@ -303,6 +314,16 @@ void ltdcSwapFrameBuffer(void)
     }
     ltdc_request_draw = false;
   }
+}
+
+uint32_t ltdcGetFrameRate(void)
+{
+  return frame_rate;
+}
+
+uint32_t ltdcGetDrawRate(void)
+{
+  return draw_rate;
 }
 
 void LTDC_IRQHandler(void)
@@ -327,6 +348,9 @@ void HAL_LTDC_LineEventCallback(LTDC_HandleTypeDef* hltdc)
       frame_time = millis();
       frame_rate = frame_cnt;
       frame_cnt = 0;
+
+      draw_rate = draw_cnt;
+      draw_cnt = 0;
     }
   }
   else
@@ -346,6 +370,13 @@ void HAL_LTDC_MspInit(LTDC_HandleTypeDef* ltdcHandle)
   GPIO_InitTypeDef GPIO_InitStruct = {0};
   if(ltdcHandle->Instance==LTDC)
   {
+    RCC_OscInitTypeDef init;
+
+    HAL_RCC_GetOscConfig(&init);
+
+    init.PLL4.PLLQ = 65; // 60
+    RCCEx_PLL4_Config(&init.PLL4);
+
     /* LTDC clock enable */
     __HAL_RCC_LTDC_CLK_ENABLE();
 
