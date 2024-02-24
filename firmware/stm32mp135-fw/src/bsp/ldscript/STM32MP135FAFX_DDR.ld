@@ -43,7 +43,9 @@ MEMORY {
       SRAM1_BASE (rwx)    : ORIGIN = 0x30000000, LENGTH = 16K
       SRAM2_BASE (rwx)    : ORIGIN = 0x30004000, LENGTH = 8K
       SRAM3_BASE (rwx)    : ORIGIN = 0x30006000, LENGTH = 8K
-      DDR_BASE (rwx)      : ORIGIN = 0xC0000000, LENGTH = 512M
+      
+      DDR_BUF  (xrw)      : ORIGIN = 0xC0000000, LENGTH = 8M
+      DDR_BASE (rwx)      : ORIGIN = 0xC0800000, LENGTH = 512M - 8M
 }
 
 /* Select Memory in which code has to be placed and offset of code from start of this memory */
@@ -200,6 +202,15 @@ SECTIONS
         . = ALIGN(8);
     } >RAM
 
+    .sdram_buf(NOLOAD) :
+    {
+      . = ALIGN(4);      
+      _ssdram_buf = .;
+      *(.sdram_buf)
+      *(.sdram_buf*) 
+      _esdram_buf = .; 
+      . = ALIGN(4);       
+    } >DDR_BUF
 
   /* Remove information from the compiler libraries */
   /DISCARD/ :

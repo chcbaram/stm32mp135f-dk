@@ -27,7 +27,12 @@
         "monitor reset",      
         "monitor halt",
         "load",
-      ]  
+      ],
+      "overrideRestartCommands": [
+        "monitor reset",      
+        "monitor halt",
+        "load",
+      ],        
     },
     {
       "cwd": "${workspaceRoot}",
@@ -48,9 +53,15 @@
       "searchDir": [],
       "runToEntryPoint": "main",
       "showDevDebugOutput": "vscode",
-      "overrideLaunchCommands": [
+      "overrideRestartCommands": [
+        "load"
+      ],
+      "postStartSessionCommands": [
+        "monitor reset"
+      ],
+      "overrideLaunchCommands": [       
         "load",
-      ]  
+      ],
     },    
   ]
 }

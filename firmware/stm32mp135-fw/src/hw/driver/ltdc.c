@@ -7,7 +7,7 @@
 
 
 #define FRAME_BUF_ADDR        HW_LTDC_BUF_ADDR
-#define FRAME_OSD_ADDR        (HW_LTDC_BUF_ADDR + (1024+512)*1024)
+#define FRAME_OSD_ADDR        (HW_LTDC_BUF_ADDR + (2048)*1024)
 #define FRAME_BUF_CNT         2
 
 
@@ -91,8 +91,7 @@ bool ltdcInit(void)
   hltdc.Init.Backcolor.Blue   = 0;
   hltdc.Init.Backcolor.Green  = 0;
   hltdc.Init.Backcolor.Red    = 0;
-
-
+  
   if(HAL_LTDC_Init(&hltdc) != HAL_OK)
   {
     ret = false;
@@ -132,8 +131,6 @@ bool ltdcInit(void)
 
   IRQ_SetPriority(LTDC_IRQn, 5);
   IRQ_Enable(LTDC_IRQn);
-
-  ltdcRequestDraw();
 
   is_init = ret;
   logPrintf("[%s] ltdcInit()\n", is_init ? "OK":"NG");
@@ -209,6 +206,8 @@ bool ltdcLayerInit(uint16_t LayerIndex, uint32_t Address)
   pLayerCfg.ImageWidth  = LCD_WIDTH;
   pLayerCfg.ImageHeight = LCD_HEIGHT;
 
+  pLayerCfg.HorMirrorEn = true;
+  pLayerCfg.VertMirrorEn = true;
 
   /* Configure the Layer*/
   if(HAL_LTDC_ConfigLayer(&hltdc, &pLayerCfg, LayerIndex) != HAL_OK)
@@ -224,10 +223,11 @@ bool ltdcLayerInit(uint16_t LayerIndex, uint32_t Address)
 
 void ltdcSetFrameBuffer(uint16_t* addr)
 {
-  LTDC_Layer1->CFBAR = (uint32_t)addr;
+  // LTDC_Layer1->CFBAR = (uint32_t)addr;
 
-  /* Reload immediate */
-  LTDC->SRCR = (uint32_t)LTDC_SRCR_IMR;
+  // /* Reload immediate */
+  // LTDC->SRCR = (uint32_t)LTDC_SRCR_IMR;  
+  HAL_LTDC_SetAddress(&hltdc, (uint32_t)addr, LTDC_LAYER_1);
 }
 
 

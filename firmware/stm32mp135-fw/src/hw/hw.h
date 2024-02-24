@@ -20,6 +20,7 @@ extern "C" {
 #include "sd.h"
 #include "touch.h"
 #include "ltdc.h"
+#include "resize.h"
 #include "lcd.h"
 
 

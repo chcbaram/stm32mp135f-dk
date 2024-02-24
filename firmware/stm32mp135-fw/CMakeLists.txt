@@ -87,7 +87,7 @@ target_compile_definitions(${EXECUTABLE} PRIVATE
   -DNO_MMU_USE
   -DGPIO_AF7_LCD=0x07
   -DDDR_TYPE_DDR3_4Gb
-  # -DCACHE_USE
+  -DCACHE_USE
   )
 
 target_compile_options(${EXECUTABLE} PRIVATE
@@ -106,8 +106,8 @@ target_compile_options(${EXECUTABLE} PRIVATE
   )
 
 target_link_options(${EXECUTABLE} PRIVATE
-  -T../src/bsp/ldscript/STM32MP135FAFX_RAM.ld
-  # -T../src/bsp/ldscript/STM32MP135FAFX_DDR.ld
+  # -T../src/bsp/ldscript/STM32MP135FAFX_RAM.ld
+  -T../src/bsp/ldscript/STM32MP135FAFX_DDR.ld
   -mcpu=cortex-a7
   -mthumb
   -mfpu=vfpv4-d16
