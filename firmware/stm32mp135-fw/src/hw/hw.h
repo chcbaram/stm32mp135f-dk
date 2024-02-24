@@ -22,6 +22,7 @@ extern "C" {
 #include "ltdc.h"
 #include "resize.h"
 #include "lcd.h"
+#include "lvgl.h"
 
 
 bool hwInit(void);

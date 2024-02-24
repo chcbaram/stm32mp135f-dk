@@ -34,7 +34,7 @@ void resizeImageFastOffset(resize_image_t *src, resize_image_t *dest);
 void resizeImageFastPxp(resize_image_t *src, resize_image_t *dest);
 
 void resizeImageFastGray(resize_image_t *src, resize_image_t *dest);
-
+void resizeImageFastGray8(resize_image_t *src, resize_image_t *dest);
 
 #ifdef __cplusplus
 }

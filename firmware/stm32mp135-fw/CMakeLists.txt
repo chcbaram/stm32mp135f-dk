@@ -35,6 +35,10 @@ file(GLOB_RECURSE SRC_FILES_RECURSE CONFIGURE_DEPENDS
   src/hw/*.c
   src/lib/ST/CMSIS/*.c
   src/lib/ST/STM32MP13xx_HAL_Driver/Src/*.c
+
+  # LVGL
+  src/hw/driver/lvgl/*.c
+  src/lib/lvgl/*.c  
 )
 
 # 특정 폴더를 빌드에서 제외한다.

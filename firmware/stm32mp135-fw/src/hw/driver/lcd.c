@@ -1401,7 +1401,7 @@ void cliLcd(cli_args_t *args)
 
   if (args->argc == 1 && args->isStr(0, "test") == true)
   {
-    uint8_t cnt = 0;
+    uint32_t cnt = 0;
     uint16_t x = 0;
     uint32_t pre_time_info;
     uint32_t fps = 0;
@@ -1455,6 +1455,10 @@ void cliLcd(cli_args_t *args)
 
         x += 3;
         x %= lcdGetWidth();
+
+        lcdPrintfRect(0, 0, LCD_WIDTH, LCD_HEIGHT, green, (cnt)%100, 
+                      LCD_ALIGN_H_CENTER|LCD_ALIGN_V_CENTER, 
+                      "확대 시험");
 
         exe_time = millis()-pre_time;
         lcdPrintf(0, 120, red, "draw %d ms", exe_time);
