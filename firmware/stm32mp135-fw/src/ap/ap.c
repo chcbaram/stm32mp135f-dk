@@ -1,5 +1,4 @@
 #include "ap.h"
-#include "lvgl/ui.h"
 #include "widgets/lv_demo_widgets.h"
 
 
@@ -18,7 +17,6 @@ void apMain(void)
   uint32_t pre_time;
 
 
-  // ui_init();
   lv_demo_widgets();
 
   pre_time = millis();

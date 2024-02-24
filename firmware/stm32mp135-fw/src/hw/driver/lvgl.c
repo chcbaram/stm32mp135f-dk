@@ -31,11 +31,11 @@ static void cliCmd(cli_args_t *args);
 static bool is_init = false;
 static bool is_enable = true;
 
-const lv_font_t lv_han_font_16;
-const lv_font_t lv_han_font_20;
-const lv_font_t lv_han_font_24;
-const lv_font_t lv_han_font_28;
-const lv_font_t lv_han_font_32;
+static lv_font_t lv_han_font_16;
+static lv_font_t lv_han_font_20;
+static lv_font_t lv_han_font_24;
+static lv_font_t lv_han_font_28;
+static lv_font_t lv_han_font_32;
 
 static lvgl_font_t han_font[LVGL_FONT_MAX]; 
 static uint8_t __attribute__((aligned(64))) font_src_buffer[16 * 16];

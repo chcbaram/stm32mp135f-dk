@@ -237,6 +237,8 @@ void ltdcSetFrameBuffer(uint16_t* addr)
   // /* Reload immediate */
   // LTDC->SRCR = (uint32_t)LTDC_SRCR_IMR;  
   HAL_LTDC_SetAddress(&hltdc, (uint32_t)addr, LTDC_LAYER_1);
+
+  // L1C_InvalidateDCacheMVA(addr);
 }
 
 
@@ -262,6 +264,9 @@ bool ltdcDrawAvailable(void)
 
 void ltdcRequestDraw(void)
 {
+  #ifdef _USE_HW_CACHE
+  invalidate_cache_by_addr(ltdc_draw_buffer, FRAME_IMG_SIZE);
+  #endif
   ltdc_request_draw = true;
 }
 
