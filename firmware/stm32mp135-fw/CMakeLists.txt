@@ -35,6 +35,7 @@ file(GLOB_RECURSE SRC_FILES_RECURSE CONFIGURE_DEPENDS
   src/hw/*.c
   src/lib/ST/CMSIS/*.c
   src/lib/ST/STM32MP13xx_HAL_Driver/Src/*.c
+  src/lib/ST/STM32_USB_Device_Library/Core/Src/*.c
 )
 
 # 특정 폴더를 빌드에서 제외한다.
@@ -77,6 +78,8 @@ target_include_directories(${EXECUTABLE} PRIVATE
   src/lib/ST/CMSIS/Core_A/Include
   src/lib/ST/CMSIS/Device/ST/STM32MP13xx/Include
   src/lib/ST/STM32MP13xx_HAL_Driver/Inc
+  src/lib/ST/STM32_USB_Device_Library/Core/Inc
+
   )
 
 target_compile_definitions(${EXECUTABLE} PRIVATE

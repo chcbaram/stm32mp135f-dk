@@ -60,7 +60,10 @@ bool hwInit(void)
 
 
   logPrintf("\n");
-
+  usbInit();
+  usbBegin(USB_CDC_MODE);
+  cdcInit();
+  
   i2cInit();
   pmicInit();
   ddrInit();

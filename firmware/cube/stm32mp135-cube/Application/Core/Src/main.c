@@ -24,6 +24,7 @@
 #include "ltdc.h"
 #include "sdmmc.h"
 #include "usart.h"
+#include "usb_otg.h"
 #include "gpio.h"
 
 /* Private includes ----------------------------------------------------------*/
@@ -97,6 +98,7 @@ int main(void)
   MX_SDMMC1_SD_Init();
   MX_I2C5_Init();
   MX_LTDC_Init();
+  MX_USB_OTG_HS_PCD_Init();
   /* USER CODE BEGIN 2 */
 
   /* USER CODE END 2 */

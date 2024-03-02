@@ -58,6 +58,7 @@ static DMA_HandleTypeDef hdma_uart4_rx;
 const static uart_hw_t uart_hw_tbl[UART_MAX_CH] = 
   {
     {"UART4 SWD    ", UART4, &huart4, &hdma_uart4_rx, NULL, false}, 
+    {"USB CDC      ", NULL , NULL   , NULL,           NULL, false}, 
   };
 
 

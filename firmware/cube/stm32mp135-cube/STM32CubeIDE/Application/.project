@@ -94,6 +94,16 @@
 			<locationURI>PARENT-2-PROJECT_LOC/Drivers/STM32MP13xx_HAL_Driver/Src/stm32mp13xx_hal_mdma.c</locationURI>
 		</link>
 		<link>
+			<name>Drivers/STM32MP13xx_HAL_Driver/stm32mp13xx_hal_pcd.c</name>
+			<type>1</type>
+			<locationURI>PARENT-2-PROJECT_LOC/Drivers/STM32MP13xx_HAL_Driver/Src/stm32mp13xx_hal_pcd.c</locationURI>
+		</link>
+		<link>
+			<name>Drivers/STM32MP13xx_HAL_Driver/stm32mp13xx_hal_pcd_ex.c</name>
+			<type>1</type>
+			<locationURI>PARENT-2-PROJECT_LOC/Drivers/STM32MP13xx_HAL_Driver/Src/stm32mp13xx_hal_pcd_ex.c</locationURI>
+		</link>
+		<link>
 			<name>Drivers/STM32MP13xx_HAL_Driver/stm32mp13xx_hal_pwr.c</name>
 			<type>1</type>
 			<locationURI>PARENT-2-PROJECT_LOC/Drivers/STM32MP13xx_HAL_Driver/Src/stm32mp13xx_hal_pwr.c</locationURI>
@@ -164,6 +174,11 @@
 			<locationURI>PARENT-2-PROJECT_LOC/Drivers/STM32MP13xx_HAL_Driver/Src/stm32mp13xx_ll_sdmmc.c</locationURI>
 		</link>
 		<link>
+			<name>Drivers/STM32MP13xx_HAL_Driver/stm32mp13xx_ll_usb.c</name>
+			<type>1</type>
+			<locationURI>PARENT-2-PROJECT_LOC/Drivers/STM32MP13xx_HAL_Driver/Src/stm32mp13xx_ll_usb.c</locationURI>
+		</link>
+		<link>
 			<name>Application/User/Core/dma.c</name>
 			<type>1</type>
 			<locationURI>PARENT-2-PROJECT_LOC/Application/Core/Src/dma.c</locationURI>
@@ -212,6 +227,11 @@
 			<name>Application/User/Core/usart.c</name>
 			<type>1</type>
 			<locationURI>PARENT-2-PROJECT_LOC/Application/Core/Src/usart.c</locationURI>
+		</link>
+		<link>
+			<name>Application/User/Core/usb_otg.c</name>
+			<type>1</type>
+			<locationURI>PARENT-2-PROJECT_LOC/Application/Core/Src/usb_otg.c</locationURI>
 		</link>
 	</linkedResources>
 </projectDescription>

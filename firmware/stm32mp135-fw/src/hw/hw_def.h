@@ -23,9 +23,10 @@
 #define      HW_LED_CH_LED_B        _DEF_LED2
 
 #define _USE_HW_UART                
-#define      HW_UART_MAX_CH         1
+#define      HW_UART_MAX_CH         2
 #define      HW_UART_CH_SWD         _DEF_UART1
 #define      HW_UART_CH_CLI         _DEF_UART1
+#define      HW_UART_CH_USB         _DEF_UART2
 
 #define _USE_HW_LOG
 #define      HW_LOG_CH              HW_UART_CH_SWD
@@ -67,6 +68,11 @@
 #define      HW_LCD_WIDTH           HW_TOUCH_WIDTH
 #define      HW_LCD_HEIGHT          HW_TOUCH_HEIGHT
 
+#define _USE_HW_USB
+#define _USE_HW_CDC
+#define      HW_USE_CDC             1
+#define      HW_USE_MSC             0
+
 
 //-- USE CLI
 //
@@ -78,6 +84,8 @@
 #define _USE_CLI_HW_SD              1
 #define _USE_CLI_HW_GT911           1
 #define _USE_CLI_HW_TOUCH           1
+#define _USE_CLI_HW_UART            1
+#define _USE_CLI_HW_USB             1
 
 
 typedef enum

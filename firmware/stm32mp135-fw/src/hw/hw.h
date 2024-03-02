@@ -22,6 +22,8 @@ extern "C" {
 #include "ltdc.h"
 #include "resize.h"
 #include "lcd.h"
+#include "usb.h"
+#include "cdc.h"
 
 
 bool hwInit(void);
